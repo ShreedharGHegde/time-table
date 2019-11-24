@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import axios from "axios";
-import moment from 'moment'
+import moment from "moment";
 
 class TimeTableForm extends Component {
   state = {
@@ -15,7 +15,9 @@ class TimeTableForm extends Component {
     subject: null,
     start: "00:00:00",
     end: "00:00:00",
-    classDetailType: null
+    classDetailType: null,
+    day: "",
+    message: null
   };
 
   onOptionChange = e => {
@@ -25,26 +27,29 @@ class TimeTableForm extends Component {
   };
 
   onAddClassClick = e => {
-
-    let start = 
-
-    e.preventDefault()
+    e.preventDefault();
     let classDetail = {
       teacher: this.state.teacher,
       batch: this.state.batch,
       room: this.state.room,
       subject: this.state.subject,
-      start: new moment(this.state.start, 'HH:mm:ss').local(),
-      end: new moment(this.state.end, 'HH:mm:ss').local(),
-      classDetailType: this.state.classDetailType
+      start: new moment(this.state.start, "HH:mm:ss").local(),
+      end: new moment(this.state.end, "HH:mm:ss").local(),
+      classDetailType: this.state.classDetailType,
+      day: this.state.day
     };
 
-    console.log('class detail', classDetail)
-    
-    axios.post('http://localhost:5000/classdetail', classDetail)
-    .then(res => console.log('res',res))
-    .catch(err => console.log('err',err))
+    console.log("class detail", classDetail);
 
+    axios
+      .post("http://localhost:5000/classdetail", classDetail)
+      .then(res => {
+        this.setState({
+          message: res.data.message
+        });
+        console.log("res", res);
+      })
+      .catch(err => console.log("err", err));
   };
 
   componentDidMount() {
@@ -99,6 +104,19 @@ class TimeTableForm extends Component {
       <div style={{ marginTop: 80 }}>
         <center>
           <form onSubmit={this.onAddClassClick}>
+            <select
+              style={{ marginRight: 10 }}
+              name="day"
+              onChange={this.onOptionChange}
+            >
+              <option>Day</option>
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">wednesday</option>
+              <option value="thursady">thursady</option>
+              <option value="friday">friday</option>
+              <option value="saturday">saturday</option>
+            </select>
             <select
               name="teacher"
               onChange={this.onOptionChange}
@@ -159,6 +177,7 @@ class TimeTableForm extends Component {
             <button onClick={this.onAddClassClick}>Add Class</button>
           </form>
         </center>
+        <h3>{this.state.message ? this.state.message : null}</h3>
       </div>
     );
   }

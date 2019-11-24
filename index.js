@@ -41,7 +41,6 @@ app.use("/", classDetailRouter);
 app.get("/all", (req, res) => {
   Promise.all([Teacher.find(), Subject.find(), Room.find(), Batch.find()])
     .then(values => {
-      console.log("values", values);
       res.send({
         teachers: values[0],
         subjects: values[1],
