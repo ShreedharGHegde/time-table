@@ -101,8 +101,8 @@ class TimeTableForm extends Component {
       : null;
 
     return (
-      <div style={{ marginTop: 80 }}>
-        <center>
+      
+        <center style={{paddingLeft:"200px"}}>
           <form onSubmit={this.onAddClassClick}>
             <select
               style={{ marginRight: 10 }}
@@ -176,9 +176,8 @@ class TimeTableForm extends Component {
             />
             <button onClick={this.onAddClassClick}>Add Class</button>
           </form>
+          <h3>{this.state.message ? this.state.message : null}</h3>
         </center>
-        <h3>{this.state.message ? this.state.message : null}</h3>
-      </div>
     );
   }
 }

@@ -14,34 +14,61 @@ router.get("/classdetail", (req, res) => {
 });
 
 router.post("/classdetail", (req, res) => {
-  let { teacher, from, to, day, subject } = req.body;
+  let { teacher, start, end, day, subject, batch } = req.body;
 
-  ClassDetail.findOne({ teacher: teacher }).then(teacherExists => {
-    if (!teacherExists) {
-      res.send({ message: "Teacher already assigned" });
-    } else {
+  console.log(
+    "teacher:",
+    teacher,
+    "start:",
+    start,
+    "end:",
+    end,
+    "subject:",
+    subject,
+    "batch:",
+    batch,
+    "day:",
+    day
+  );
+
+  ClassDetail.findOne({
+    $and: [{ day: day }, { batch: batch }, { start: start }, { end: end }]
+  })
+    .then(timeAlreadyAssigned => {
+      console.log("exists", timeAlreadyAssigned);
+      if (timeAlreadyAssigned) {
+        res.send({ message: "time already assigned" });
+      }
       ClassDetail.findOne({
-        teacher: teacher,
-        day: day,
-        from: from,
-        to: to,
-        subject: subject
-      }).then(classdetailExists => {
-        if (!classdetailExists) {
-          res.send({ message: "Time slot already assigned" });
-        } else {
-          const classdetail = new ClassDetail(req.body);
+        $and: [
+          { teacher: teacher },
+          { day: day },
+          { start: start },
+          { end: end }
+        ]
+      })
+        .then(teacherAlreadyAssigned => {
+          if (teacherAlreadyAssigned) {
+            res.send({ message: "teacher already assigned" });
+            return;
+          }
+          console.log("second exists", teacherAlreadyAssigned);
+          let classdetail = new ClassDetail(req.body);
           classdetail
             .save()
-            .then(classdetail =>
-              res.send({ classdetail: classdetail, message: "success" })
-            );
-        }
-      });
-    }
-  });
+            .then(savedClassDetail => {
+              console.log("saved", savedClassDetail),
+                res.send({ message: "success" });
+            })
+            .catch(err => console.log("save err", err));
+        })
+        .catch(err => console.log("err", err));
+    })
+    .catch(err => console.log("outer err", err));
 
-  console.log(req.body);
+  // ClassDetail.save(req.body).then(res => console.log('saved',res))
+
+  console.log('body',req.body);
 });
 
 router.put("/classdetail/:id", (req, res) => {
