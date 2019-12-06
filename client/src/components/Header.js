@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export class Header extends Component {
   render() {
     return (
-      <nav className="navbar navbar-inverse">
+      <nav className="navbar navbar-dark bg-dark">
         <div className="container">
           <div className="navbar-header">
               <h2 style={{color:'white'}}>Vibhaag</h2>

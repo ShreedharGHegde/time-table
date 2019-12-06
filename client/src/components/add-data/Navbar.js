@@ -1,79 +1,54 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "./Navbar.css";
 
 export default class Navbar extends React.Component {
   render() {
     return (
       <div style={{ marginLeft: "300px" }}>
         <Router>
-          <div style={{ margin: 0 }}>
-            <nav>
-              <ul>
-                <li>
-                  <h3>
-                    <Link to="/teacher" style={{ textDecoration: "none" }}>
-                      Teacher
-                    </Link>
-                  </h3>
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <Link to="/teacher" style={{ textDecoration: "none" }}>
+                    Teacher
+                  </Link>
                 </li>
-                <li>
-                  <h3>
-                    <Link to="/class-room" style={{ textDecoration: "none" }}>
-                      Class Room
-                    </Link>
-                  </h3>
+                <li class="nav-item active">
+                  <Link to="/subject" style={{ textDecoration: "none" }}>
+                    Subject
+                  </Link>
                 </li>
-                <li>
-                  <h3>
-                    <Link to="/subjec" style={{ textDecoration: "none" }}>
-                      Subject
-                    </Link>
-                  </h3>
+                <li class="nav-item active">
+                  <Link to="/class-room" style={{ textDecoration: "none" }}>
+                    Class Room
+                  </Link>
                 </li>
-                <li>
-                  <h3>
-                    <Link to="/batch" style={{ textDecoration: "none" }}>
-                      Batch
-                    </Link>
-                  </h3>
+                <li class="nav-item active">
+                  <Link to="/batch" style={{ textDecoration: "none" }}>
+                    Batch
+                  </Link>
                 </li>
               </ul>
-            </nav>
+            </div>
+          </nav>
 
-            <Switch>
-              <Route exact path="/teacher">
-                <Teachers />
-              </Route>
-              <Route path="/batch">
-                <Batches />
-              </Route>
-              <Route path="/class-room">
-                <ClassRooms />
-              </Route>
-              <Route path="/subject">
-                <Subjects />
-              </Route>
-            </Switch>
-          </div>
+          <Switch>
+            <Route exact path="/teacher">
+              <div>Teacher</div>
+            </Route>
+            <Route path="/subject">
+              <div>Subject</div>
+            </Route>
+            <Route path="/batch">
+              <div>batch</div>
+            </Route>
+            <Route path="/class-room">
+              <div>Class Room</div>
+            </Route>
+          </Switch>
         </Router>
       </div>
     );
   }
-}
-
-function Teachers() {
-  return <div style={{ marginLeft: "300px" }}>Teacher</div>;
-}
-
-function Batches() {
-  return <div style={{ marginLeft: "25%" }}>Batches</div>;
-}
-
-function Subjects() {
-  return <div style={{ marginLeft: "25%" }}>Subjects</div>;
-}
-
-function ClassRooms() {
-  return <div style={{ marginLeft: "25%" }}>Class Rooms</div>;
 }
