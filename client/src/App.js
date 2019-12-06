@@ -2,56 +2,79 @@ import React from "react";
 import TimeTableForm from "./components/TimeTableForm";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Header from "./components/Header";
+import FormsNavbar from "./components/add-data/Navbar";
 
 export default function App() {
   return (
-    <div>
-       <Router>
-      <div style={{ margin: 0 }}>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/createtimetable">Create Time Table</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/createtimetable">
-            <TimeTableForm style={{ marginLeft: "25%" }} />
-          </Route>
-        </Switch>
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col-md-12">
+          <Header />
+        </div>
       </div>
-    </Router>
-    </div>
-   
+
+          <Router>
+            <div style={{ margin: 0 }}>
+              <nav>
+                <ul>
+                  <li>
+                    <h3>
+                      <Link to="/" style={{ textDecoration: "none" }}>
+                        Home
+                      </Link>
+                    </h3>
+                  </li>
+                  <li>
+                    <h3>
+                      <Link to="/add-data" style={{ textDecoration: "none" }}>
+                        Add data
+                      </Link>
+                    </h3>
+                  </li>
+                  <li>
+                    <h3>
+                      <Link
+                        to="/createtimetable"
+                        style={{ textDecoration: "none" }}
+                      >
+                        Create Time Table
+                      </Link>
+                    </h3>
+                  </li>
+                  <li>
+                    <h3>
+                      <Link to="/users" style={{ textDecoration: "none" }}>
+                        Users
+                      </Link>
+                    </h3>
+                  </li>
+                </ul>
+              </nav>
+
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route path="/add-data">
+                  <FormsNavbar />
+                </Route>
+                <Route path="/users">
+                  <Users />
+                </Route>
+                <Route path="/createtimetable">
+                  <TimeTableForm />
+                </Route>
+              </Switch>
+            </div>
+          </Router>
+        </div>
+    
   );
 }
 
 function Home() {
-  return <div style={{ marginLeft: "25%" }}>Home</div>;
-}
-
-function About() {
-  return <div style={{ marginLeft: "25%" }}>About</div>;
+  return <div style={{ marginLeft: "300px" }}>Home</div>;
 }
 
 function Users() {

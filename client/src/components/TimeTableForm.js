@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import moment from "moment";
 
+import './TimeTableForm.css'
+
 class TimeTableForm extends Component {
   state = {
     teachers: [],
@@ -102,8 +104,8 @@ class TimeTableForm extends Component {
 
     return (
       
-        <center style={{paddingLeft:"200px"}}>
-          <form onSubmit={this.onAddClassClick}>
+        
+          <form onSubmit={this.onAddClassClick} style={{marginLeft:'300px'}}>
             <select
               style={{ marginRight: 10 }}
               name="day"
@@ -176,8 +178,7 @@ class TimeTableForm extends Component {
             />
             <button onClick={this.onAddClassClick}>Add Class</button>
           </form>
-          <h3>{this.state.message ? this.state.message : null}</h3>
-        </center>
+       
     );
   }
 }

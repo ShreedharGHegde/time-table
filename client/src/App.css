@@ -3,10 +3,11 @@ ul {
   margin: 0;
   padding: 0;
   width: 20%;
-  background-color: #f1f1f1;
+  background-color: lightgray;
   position: fixed;
   height: 100%;
   overflow: auto;
+  text-decoration: none;
 }
 
 li a {
@@ -17,11 +18,12 @@ li a {
 }
 
 li a.active {
-  background-color: #4CAF50;
   color: white;
+  text-decoration: red;
 }
 
 li a:hover:not(.active) {
   background-color: #555;
   color: white;
+  text-decoration: none;
 }
