@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 
 // establish a database connection
 mongoose
-  .connect('mongodb://shreedhar:shree1996@ds117093.mlab.com:17093/timetable', {
+  .connect('mongodb://@ds117093.mlab.com:17093/timetable', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
