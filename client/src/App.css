@@ -25,13 +25,13 @@ li a {
   visibility: visible;
 }
 
-li a.active {
+li .active {
   color: white;
   text-decoration: red;
 }
 
 li a:hover:not(.active) {
-  background-color: #555;
+  background-color: darkgray;
   color: white;
   text-decoration: none;
 }
