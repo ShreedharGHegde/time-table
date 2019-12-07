@@ -17,7 +17,7 @@ export default class App extends React.Component {
         </div>
 
         <Router>
-          <div style={{ margin: 0 }}>
+          <div>
             <nav>
               <ul className="navUl">
                 <li className="navLi">
@@ -43,7 +43,7 @@ export default class App extends React.Component {
                         "color": "white",
                         "textDecoration": "none"
                       }}
-                      to="/add-data"
+                      to="/teacher"
                     >
                       Add data
                     </NavLink>
@@ -84,7 +84,7 @@ export default class App extends React.Component {
               <Route exact path="/">
                 <Home />
               </Route>
-              <Route path="/add-data">
+              <Route path="/teacher">
                 <FormsNavbar />
               </Route>
               <Route path="/users">
