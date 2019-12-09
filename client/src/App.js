@@ -1,5 +1,5 @@
 import React from "react";
-import TimeTableForm from "./components/TimeTableForm";
+import TimeTableForm from "./components/component/TimeTableForm";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -7,7 +7,7 @@ import {
   Route,
   NavLink
 } from "react-router-dom";
-import Header from "./components/Header";
+import Header from "./components/layouts/Header";
 import FormsNavbar from "./components/add-data/Navbar";
 import PropTypes from "prop-types";
 
@@ -107,7 +107,7 @@ App.contextTypes = {
 };
 
 function Home() {
-  return <div style={{ marginLeft: "300px" }}>Home</div>;
+  return <div style={{ marginLeft: "30%" }}>Home</div>;
 }
 
 function Users() {
