@@ -1,5 +1,5 @@
 import React from "react";
-import TimeTableForm from "./components/component/TimeTableForm";
+import TimeTableForm from "./components/time-table/TimeTableForm";
 import "./App.css";
 import {
   BrowserRouter as Router,

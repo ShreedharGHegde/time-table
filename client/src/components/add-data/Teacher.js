@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { addTeacher } from '../actions/teacher';
 
 export class Teacher extends Component {
   state = {
@@ -16,7 +18,7 @@ export class Teacher extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    console.log("state", this.state);
+    this.props.addTeacher(this.state)
   };
 
   render() {
@@ -66,4 +68,11 @@ export class Teacher extends Component {
   }
 }
 
-export default Teacher;
+const mapStateToProps = state => ({
+  teacher: state.teacher,
+});
+
+export default connect(
+  mapStateToProps,
+  { addTeacher }
+)(Teacher);
