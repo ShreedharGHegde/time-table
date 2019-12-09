@@ -1,7 +1,12 @@
 import React from "react";
 import TimeTableForm from "./components/TimeTableForm";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, NavLink } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink
+} from "react-router-dom";
 import Header from "./components/Header";
 import FormsNavbar from "./components/add-data/Navbar";
 import PropTypes from "prop-types";
@@ -10,11 +15,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-12">
-            <Header />
-          </div>
-        </div>
+        <Header />
 
         <Router>
           <div>
@@ -23,12 +24,12 @@ export default class App extends React.Component {
                 <li className="navLi">
                   <h3>
                     <NavLink
-                    exact
+                      exact
                       to="/"
                       activeStyle={{
-                        "backgroundColor":" #555",
-                        "color": "white",
-                        "textDecoration": "none"
+                        backgroundColor: " #555",
+                        color: "white",
+                        textDecoration: "none"
                       }}
                     >
                       Home
@@ -38,10 +39,10 @@ export default class App extends React.Component {
                 <li className="navLi">
                   <h3>
                     <NavLink
-                       activeStyle={{
-                        "backgroundColor":" #555",
-                        "color": "white",
-                        "textDecoration": "none"
+                      activeStyle={{
+                        backgroundColor: " #555",
+                        color: "white",
+                        textDecoration: "none"
                       }}
                       to="/teacher"
                     >
@@ -52,10 +53,10 @@ export default class App extends React.Component {
                 <li className="navLi">
                   <h3>
                     <NavLink
-                       activeStyle={{
-                        "backgroundColor":" #555",
-                        "color": "white",
-                        "textDecoration": "none"
+                      activeStyle={{
+                        backgroundColor: " #555",
+                        color: "white",
+                        textDecoration: "none"
                       }}
                       to="/createtimetable"
                     >
@@ -68,9 +69,9 @@ export default class App extends React.Component {
                     <NavLink
                       to="/users"
                       activeStyle={{
-                        "backgroundColor":" #555",
-                        "color": "white",
-                        "textDecoration": "none"
+                        backgroundColor: " #555",
+                        color: "white",
+                        textDecoration: "none"
                       }}
                     >
                       Users
@@ -112,4 +113,3 @@ function Home() {
 function Users() {
   return <div style={{ marginLeft: "25%" }}>Users</div>;
 }
-

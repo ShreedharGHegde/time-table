@@ -56,6 +56,7 @@ export class Teacher extends Component {
               onChange={this.onChange}
             />
           </div>
+          
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
