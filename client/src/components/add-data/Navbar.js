@@ -8,7 +8,7 @@ import {
 import Teacher from "./Teacher";
 import { Subject } from "./Subject";
 import { Batch } from "./Batch";
-import { ClassRoom } from "./ClassRoom";
+// import { ClassRoom } from "./ClassRoom";
 
 export default class Navbar extends React.Component {
   render() {
@@ -46,7 +46,7 @@ export default class Navbar extends React.Component {
                     Subject
                   </NavLink>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <NavLink
                     activeStyle={{
                       backgroundColor: " #555",
@@ -57,7 +57,7 @@ export default class Navbar extends React.Component {
                   >
                     Class Room
                   </NavLink>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <NavLink
                     activeStyle={{
@@ -84,9 +84,9 @@ export default class Navbar extends React.Component {
             <Route path="/batch">
               <Batch />
             </Route>
-            <Route path="/class-room">
+            {/* <Route path="/class-room">
               <ClassRoom />
-            </Route>
+            </Route> */}
           </Switch>
         </Router>
       </div>

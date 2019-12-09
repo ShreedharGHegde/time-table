@@ -24,35 +24,24 @@ export class Subject extends Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Teacher Name</label>
+            <label htmlFor="name">Subject Name</label>
             <input
               type="text"
               className="form-control"
-              id="name"
-              name="name"
-              placeholder="Enter Name"
+              id="subjectName"
+              name="subjectName"
+              placeholder="Enter Subject Name"
               onChange={this.onChange}
             />
           </div>
           <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Teacher Id</label>
+            <label htmlFor="sujectId">Subject Id</label>
             <input
               type="text"
-              name="id"
+              name="subjectId"
               className="form-control"
-              id="id"
-              placeholder="Enter ID"
-              onChange={this.onChange}
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="exampleInputEmail1">Department</label>
-            <input
-              type="text"
-              className="form-control"
-              id="department"
-              name="department"
-              placeholder="Enter Department"
+              id="subjectId"
+              placeholder="Enter Subject ID"
               onChange={this.onChange}
             />
           </div>
