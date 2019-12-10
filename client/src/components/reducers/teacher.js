@@ -1,4 +1,4 @@
-import { GET_TEACHERS, ADD_TEACHER, DELETE_TEACHER } from "../types";
+import { GET_TEACHERS, ADD_TEACHER, DELETE_TEACHER, TEACHERS_LOADING } from "../types";
 
 const initialState = {
   teachers: [],

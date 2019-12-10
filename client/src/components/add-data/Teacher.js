@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { addTeacher } from '../actions/teacher';
+import { addTeacher, getTeachers } from '../actions/teacher';
 
 export class Teacher extends Component {
   state = {
@@ -8,6 +8,11 @@ export class Teacher extends Component {
     id: "",
     department: ""
   };
+
+  componentDidMount() {
+    console.log('props', this.props)
+    this.props.getTeachers()
+  }
 
   onChange = e => {
     this.setState({
@@ -74,5 +79,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { addTeacher }
+  { addTeacher, getTeachers }
 )(Teacher);

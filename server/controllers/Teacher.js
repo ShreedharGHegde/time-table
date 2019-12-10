@@ -6,22 +6,23 @@ const router = express.Router()
 const Teacher = require('../models/Teacher')
 
 
-router.get('/teacher', (req, res) => {
+router.get('/', (req, res) => {
+    console.log('teacher get')
     Teacher.find().then(teachers => res.send(teachers))
 })
 
-router.post('/teacher', (req, res) => {
-    console.log(req.body)
+router.post('/', (req, res) => {
+    console.log('body',req.body)
     const teacher = new Teacher({name: req.body.name})
 
     teacher.save().then(teacher => res.send(teacher))
 })
 
-router.put('/teacher/:id', (req, res) => {
+router.put('/:id', (req, res) => {
     console.log('body',req.body)
 })
 
-router.delete('/teacher/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     console.log('body',req.body)
 })
 

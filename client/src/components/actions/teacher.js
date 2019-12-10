@@ -1,16 +1,19 @@
 import axios from 'axios';
 import {GET_TEACHERS, DELETE_TEACHER, ADD_TEACHER, TEACHERS_LOADING } from '../types';
+import { connection } from 'mongoose';
 
 
 export const getTeachers = () => dispatch => {
   dispatch(setTeachersLoading());
   axios
-    .get('http://localhost:5000/teachers')
-    .then(res =>
+    .get('http://localhost:5000/api/teacher')
+    .then(res =>{
+      console.log('teacher res', res.data)
       dispatch({
         type: GET_TEACHERS,
         payload: res.data
       })
+    }
     )
     .catch(err =>
         console.log('teacher err', err)
@@ -18,13 +21,16 @@ export const getTeachers = () => dispatch => {
 };
 
 export const addTeacher = teacher => (dispatch, getState) => {
+  console.log('teacher', teacher)
   axios
-    .post('http://localhost:5000/teacher', teacher)
-    .then(res =>
+    .post('http://localhost:5000/api/teacher', teacher)
+    .then(res =>{
+      console.log('post res', res.data)
       dispatch({
         type: ADD_TEACHER,
         payload: res.data
       })
+    }
     )
     .catch(err =>
      console.log('teacher err', err)
@@ -33,7 +39,7 @@ export const addTeacher = teacher => (dispatch, getState) => {
 
 export const deleteTeacher = id => (dispatch, getState) => {
   axios
-    .delete(`/api/items/${id}`)
+    .delete(`/api/teacher/${id}`)
     .then(res =>
       dispatch({
         type: DELETE_TEACHER,
