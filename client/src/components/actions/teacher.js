@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {GET_TEACHERS, DELETE_TEACHER, ADD_TEACHER, TEACHERS_LOADING } from '../types';
-import { connection } from 'mongoose';
 
 
 export const getTeachers = () => dispatch => {
@@ -52,6 +51,7 @@ export const deleteTeacher = id => (dispatch, getState) => {
 };
 
 export const setTeachersLoading = () => {
+  console.log('set teachers loading')
   return {
     type: TEACHERS_LOADING
   };

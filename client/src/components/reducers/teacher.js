@@ -2,7 +2,8 @@ import { GET_TEACHERS, ADD_TEACHER, DELETE_TEACHER, TEACHERS_LOADING } from "../
 
 const initialState = {
   teachers: [],
-  loading: false
+  loading: false,
+  message: null
 };
 
 export default function(state = initialState, action) {
@@ -10,8 +11,9 @@ export default function(state = initialState, action) {
     case GET_TEACHERS:
       return {
         ...state,
-        teachers: action.payload,
-        loading: false
+        teachers: action.payload.data,
+        loading: false,
+        message: action.payload.message
       };
     case DELETE_TEACHER:
       return {
@@ -23,7 +25,7 @@ export default function(state = initialState, action) {
     case ADD_TEACHER:
       return {
         ...state,
-        teachers: [action.payload, ...state.teachers]
+        teachers: [action.payload.data, ...state.teachers]
       };
     case TEACHERS_LOADING:
       return {

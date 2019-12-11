@@ -29,6 +29,7 @@ export class Teacher extends Component {
   render() {
     return (
       <div>
+        <div>{this.props.teacher.loading ? 'Loading...': null }</div>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label htmlFor="name">Teacher Name</label>
