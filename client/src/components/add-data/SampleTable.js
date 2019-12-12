@@ -5,14 +5,16 @@ import "./SampleTable.css";
 export class SampleTable extends Component {
   state = {
     tableEditable: false,
-    focus: null
+    focus: null,
+    icon: 'icon-edit'
   };
 
   changeTableProperty = () => {
     console.log("clicked");
     this.setState(
       {
-        tableEditable: true
+        tableEditable: !this.state.tableEditable,
+        icon: this.state.tableEditable ?  'icon-edit' : 'icon-check'
       },
       () => {
         this.tdInput.focus();
@@ -47,6 +49,7 @@ export class SampleTable extends Component {
           <tbody>
             <tr>
               <td
+                suppressContentEditableWarning={true}
                 contentEditable={this.state.tableEditable}
                 ref={td => {
                   this.tdInput = td;
@@ -54,10 +57,10 @@ export class SampleTable extends Component {
               >
                 1
               </td>
-              <td>Anna</td>
-              <td>Pitt</td>
-              <td>35</td>
-              <td>New York</td>
+              <td contentEditable={this.state.tableEditable}>Anna</td>
+              <td contentEditable={this.state.tableEditable}>Pitt</td>
+              <td contentEditable={this.state.tableEditable}>35</td>
+              <td contentEditable={this.state.tableEditable}>New York</td>
               <td>
                 <button
                   type="input"
@@ -65,7 +68,7 @@ export class SampleTable extends Component {
                   onClick={this.changeTableProperty}
                 >
                   {" "}
-                  <i className="icon-pencil"></i>
+                  <i className={this.state.icon}></i>
                 </button>
               </td>
               <td>
