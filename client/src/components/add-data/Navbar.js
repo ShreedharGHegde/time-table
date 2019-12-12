@@ -8,6 +8,7 @@ import {
 import Teacher from "./Teacher";
 import { Subject } from "./Subject";
 import { Batch } from "./Batch";
+import SampleTable from "./SampleTable";
 // import { ClassRoom } from "./ClassRoom";
 
 export default class Navbar extends React.Component {
@@ -82,7 +83,7 @@ export default class Navbar extends React.Component {
               <Subject />
             </Route>
             <Route path="/batch">
-              <Batch />
+              <SampleTable />
             </Route>
             {/* <Route path="/class-room">
               <ClassRoom />

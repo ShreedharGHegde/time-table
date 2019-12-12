@@ -11,7 +11,7 @@ const { fetchDetailsRouter } = require('../controllers/FetchDetails');
 router.use('/api/teacher', teacherRouter);
 router.use('/api/subject', subjectRouter);
 router.use('/api/room', roomRouter);
-router.use('api/batch/', batchRouter);
+router.use('/api/batch', batchRouter);
 router.use('/api/classDetail', classDetailRouter);
 router.use('/api/fetchDetails', fetchDetailsRouter);
 
