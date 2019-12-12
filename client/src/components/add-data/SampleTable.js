@@ -6,15 +6,28 @@ export class SampleTable extends Component {
   state = {
     tableEditable: false,
     focus: null,
-    icon: 'icon-edit'
+    icon: "icon-edit",
+    firstName: ""
+  };
+
+  handleChange = e => {
+    console.log('ref', this.refs.firstName.innerText)
+    // this.setState(
+    //   {
+    //     firstName: e.target.value
+    //   },
+    //   () => {
+    //     console.log("first name", this.state.firstName);
+    //   }
+    // );
   };
 
   changeTableProperty = () => {
-    console.log("clicked");
+    console.log("refs", this.refs.firstName.innerText);
     this.setState(
       {
         tableEditable: !this.state.tableEditable,
-        icon: this.state.tableEditable ?  'icon-edit' : 'icon-check'
+        icon: this.state.tableEditable ? "icon-edit" : "icon-check"
       },
       () => {
         this.tdInput.focus();
@@ -32,6 +45,8 @@ export class SampleTable extends Component {
   }
 
   render() {
+    console.log("state", this.state.firstName);
+
     return (
       <div className="table-responsive">
         <table className="table table-bordered">
@@ -47,7 +62,7 @@ export class SampleTable extends Component {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr onKeyPress={this.handleChange}>
               <td
                 suppressContentEditableWarning={true}
                 contentEditable={this.state.tableEditable}
@@ -57,7 +72,13 @@ export class SampleTable extends Component {
               >
                 1
               </td>
-              <td contentEditable={this.state.tableEditable}>Anna</td>
+              <td
+                contentEditable={this.state.tableEditable}
+                onKeyPress={() => this.handleChange}
+                ref="firstName"
+              >
+                Anna
+              </td>
               <td contentEditable={this.state.tableEditable}>Pitt</td>
               <td contentEditable={this.state.tableEditable}>35</td>
               <td contentEditable={this.state.tableEditable}>New York</td>
